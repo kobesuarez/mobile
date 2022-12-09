@@ -1,0 +1,164 @@
+body{
+    margin: 0 0 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.topnav{
+    display: inline-block;
+    width: 100vw;
+    height: 20%;
+    background-color: #DBBCD2;
+    padding: 12.5px 0 12.5px 0;
+    margin: 0 0 0 0;
+}
+.title{
+    float: left;
+    justify-content: center;
+    padding: 0 0 0 0;
+}
+h1, h3{
+    margin: 0 0 0 0;
+}
+.img{
+    float: left;
+    margin: 10px 10px 0px 10px;
+    height: 10vh;
+}
+.sidenav{
+    padding: 0 0 0 0;
+    margin: 0 25px 0 0;
+    background-color: #DBBCD2;
+    width: 15vw;
+    float: left;
+}
+li{
+    margin: 0 0 0 0;
+    padding: 10px;
+    list-style-type: none;
+    text-align: center;
+}
+li:hover{
+    background-color: white;
+}
+ul{
+    padding: 0 0 0 0;
+}
+.sidenav, .dashboard-voter, .vgraph{
+    display: inline-block;
+}
+
+.adminname{
+    float: right;
+    margin: 35px 30px 0 0;
+}
+.adminlogo{
+    float: right;
+    background-color: black;
+    border-radius: 50px;
+    height: 7vh;
+    width: 3.5vw;
+    margin: 15px 30px 0 0;
+}
+.dashboard-voter{
+    display: flex;
+    margin: 0 0 0 0;
+}
+.list{
+    border-radius: 15px;
+    margin: 20px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
+    height: 76vh;
+    width: 55vw;
+    background-color: #EDEDED;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.partygraph{
+    background-color: #EDEDED;
+    border-radius: 15px;
+    margin: 20px 20px 20px 20px;
+    height: 80.7vh;
+    width: 20vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.searchbar{
+    border-radius: 50px;
+    margin-left: 20px;
+    height: 2.5vh;
+    padding-left: 15px;
+}
+.findbtn, .sortbtn, .addbtn{
+    margin: 0 15px 0 10px;
+    padding: 5px 20px 5px 20px;
+    float: right;
+    width: 7vw;
+    border-radius: 50px;
+    background-color: #ADADAD;
+}
+.tablelist{
+    margin: 15px 15px 15px 15px;
+    background-color: white;
+    height: 70vh;
+    width: 53vw;
+}
+#add{
+    position: absolute;
+    top: 0;
+    margin: 50px 475px 50px 475px;
+    z-index: 1;
+    height: 80vh;
+    width: 40vw;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: #EDEDED;
+    padding: 30px 30px 10px 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#close{
+    display: none;
+}
+.addcontainer{
+    background-color: white;
+    width: 30vw;
+    padding: 20px 20px 20px 20px;
+}
+.btns, .addcontainer{
+    display: inline-block;
+}
+.intext{
+    background-color: #EDEDED;
+    width: 16vw;
+    height: 2.5vh;
+    padding-left: 10px;
+    border-radius: 25px;
+}
+p{
+    margin-left: 5px;
+    margin-bottom: 0;
+}
+#position{
+    background-color: #EDEDED;
+    border-radius: 25px;
+    height: 3.25vh;
+    width: 17vw;
+    padding-left: 10px;
+}
+.applybtn, .savebtn, .cancelbtn{
+    margin: 0 20px 20px 20px;
+    padding: 5px 20px 5px 20px;
+    float: right;
+    width: 7vw;
+    border-radius: 50px;
+    background-color: #ADADAD;
+    font-weight: bold;
+
+}
+.btns{
+    position: absolute;
+    top: 5%;
+}
+.imgbtn{
+    border-radius: 25px;
+    margin-top: 20px;
+    float: right;
+}
+

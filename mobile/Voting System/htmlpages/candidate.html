@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/candidate.css">
+    <script src="/scripts/admin.js"></script>
+    <title>Candidate</title>
+</head>
+<body id="addcandidate">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <div class="topnav">
+        <img src="/cict.png" class="img">
+        <div class="title">
+            <p>
+                <h1>Taguig City University</h1>
+                <h3>College of Information Communication and Technology Admin Portal</h3>
+            </p>
+        </div>
+        <div class="adminpanel">
+            <div class="adminlogo">
+                <img src="" alt="" class="logo">
+            </div>
+            <h3 class="adminname">Admin</h3>
+        </div>
+    </div>
+    <div class="sidenav">
+        <ul>
+            <li><button type = "button" class="dashboardbtn">Dashboard</button></li>
+            <li><button type = "button" class="voterbtn">Voters List</button></li>
+            <li><button type = "button" class="candidatebtn">Candidates</button></li>
+        </ul>
+    </div>
+    <div class="dashboard-voter">
+        <div class="list">
+            <div class="toplist">
+                <input type="text" placeholder="ex: xx-xxxxx" class = "searchbar">
+                <button class="addbtn" v-on:click = "isClicked = !isClicked">Add</button>
+                <button class="sortbtn">Sort</button>
+                <button class="findbtn">Find</button>
+            </div>
+            <div class="tablelist"> 
+                
+            </div>
+        </div>
+        <div class="partygraph"></div>
+        
+    </div>
+    <div id="add" v-if="isClicked">
+        <div class="addcontainer">
+            <div class="imgbtn">
+                <button id="insertbtn">Insert Image</button>
+            </div>
+            <p>Surname</p>
+            <input type="text" class = "intext"id = "surtext">
+            <p>First name</p>
+            <input type="text" class = "intext" id = "firsttext">
+            <p>Middle Name</p>
+            <input type="text" class = "intext" id = "mntext">
+            <p>Age</p>
+            <input type="text" class = "intext" id = "agetext"><br><br>
+            <input type="radio" name="gender" id="male">Male 
+            <input type="radio" name="gender" id="female" style="margin-left: 30px;">Female
+            <p>Student Number</p>
+            <input type="text" class = "intext" id = "stnotext">
+            <p>Course</p>
+            <input type="text" class = "intext" id = "coursetext">
+            <p>Position Applying</p>
+            <select name="positions" id="position">
+                <option value="President">President</option>
+                <option value="Vice President - Internal">Vice President - Internal</option>
+                <option value="Vice President - External">Vice President - External</option>
+                <option value="General Secretary">General Secretary</option>
+                <option value="Deputy Secretary">Deputy Secretary</option>
+                <option value="Treasurer">Treasurer</option>
+                <option value="Auditor">Auditor</option>
+                <option value="Public Information Officer - Male">Public Information Officer - Male</option>
+                <option value="Public Information Officer - Female">Public Information Officer - Female</option>
+            </select>
+            <p>Partylist:</p>
+            <input type="text" class = "intext" id = "plist">
+        </div>
+        <div class="btns">
+            <button class="applybtn">Apply</button><br>
+            <button class="savebtn">Save</button><br>
+            <button class="cancelbtn" v-on:click = "isClicked = !isClicked">Cancel</button>
+        </div>
+        
+    </div>
+    <script>
+        let add = Vue.createApp({
+            data: function(){
+                return{
+                    isClicked: false
+                }
+            }
+        })
+        add.mount('#addcandidate')
+    </script>
+</body>
+
+</html>

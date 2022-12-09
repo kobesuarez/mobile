@@ -1,0 +1,87 @@
+body{
+    background-image: linear-gradient(247.23deg, #A229A5 -2.25%, #EB3737 104.04%);
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    display: inline;
+}
+
+input[type=text]{
+    background: rgba(217, 217, 217, 0.5);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 80px;
+    padding: 10px;
+    width: 43.5%; 
+}
+input[type=password]{
+    background: rgba(217, 217, 217, 0.5);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 80px;
+    padding: 10px;
+    width: 43.5%; 
+}
+.loginbox{
+    margin: 7.5% 0 0 12.5%;
+    width: 75vh;
+}
+.rightside{
+    position: absolute; 
+    top: 0;
+    margin: 7.5% 0 0 42.5%;
+    width: 85vh;
+
+}
+.title{
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+.school{
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+.loginbtn{
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(247.23deg, #A229A5 -2.25%, #EB3737 104.04%);
+    border: 2px solid #FFFFFF;
+    border-radius: 29px;
+    color: white; 
+}
+.loginbtn:hover{
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(247.23deg, #A229A5 -2.25%, #EB3737 104.04%);
+    border: 2px solid #FFFFFF;
+    border-radius: 29px;
+    color: white; 
+    animation: btnhover 5s linear;
+}
+.link{
+    text-decoration: none;
+}
+.line{
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: white;
+    margin-left: 30px;
+    display: inline-block;
+}
+.signinbtn{
+    color: #FFFFFF;
+    margin-left: 65px;
+    background: transparent;
+    border: none;
+}
+.seperator{
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: -12.5%;
+    top: 0px;
+    background-color: #FFFFFF;
+}
+.img{
+    width: 85%;
+    height: 57.5%;
+    margin-right: 6%;
+}

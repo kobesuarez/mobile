@@ -1,0 +1,114 @@
+body{
+    margin: 0 0 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.topnav{
+    display: inline-block;
+    width: 100vw;
+    height: 20%;
+    background-color: #DBBCD2;
+    padding: 12.5px 0 12.5px 0;
+    margin: 0 0 0 0;
+}
+.title{
+    float: left;
+    justify-content: center;
+    padding: 0 0 0 0;
+}
+h1, h3{
+    margin: 0 0 0 0;
+}
+.img{
+    float: left;
+    margin: 10px 10px 0px 10px;
+    height: 10vh;
+}
+.sidenav{
+    padding: 0 0 0 0;
+    margin: 0 25px 0 0;
+    background-color: #DBBCD2;
+    width: 15vw;
+    float: left;
+}
+li{
+    margin: 0 0 0 0;
+    padding: 10px;
+    list-style-type: none;
+    text-align: center;
+}
+li:hover{
+    background-color: white;
+}
+ul{
+    padding: 0 0 0 0;
+}
+.sidenav, .dashboard-voter, .vgraph{
+    display: inline-block;
+}
+
+.adminname{
+    float: right;
+    margin: 35px 30px 0 0;
+}
+.adminlogo{
+    float: right;
+    background-color: black;
+    border-radius: 50px;
+    height: 7vh;
+    width: 3.5vw;
+    margin: 15px 30px 0 0;
+}
+.dashboard-voter{
+    display: flex;
+    margin: 0 0 0 0;
+}
+.list{
+    margin: 20px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
+    height: 76vh;
+    width: 45vw;
+    background-color: #EDEDED;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.vgraph{
+    background-color: #EDEDED;
+    margin: 20px 20px 20px 20px;
+    height: 80.7vh;
+    width: 15vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.position, .voters, .candidates{
+    background-color: #EDEDED;
+    margin: 20px 0 20px 20px ;
+    height: 25.35vh;
+    width: 12.5vw;
+    display: block;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.searchbar{
+    border-radius: 50px;
+    height: 2.5vh;
+    padding-left: 15px;
+}
+.findbtn, .sortbtn{
+    margin: 0 10px 0 10px;
+    float: right;
+    width: 5vw;
+    border-radius: 50px;
+    background-color: #ADADAD;
+}
+.tablelist{
+    margin: 15px 15px 15px 15px;
+    background-color: white;
+    height: 65vh;
+    width: 42.5vw;
+    border-radius: 25px;
+}
+
+
+
+
+
+
