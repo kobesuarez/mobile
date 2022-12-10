@@ -4,9 +4,7 @@ if (isset($_POST['submit'])) {
     $cname = $_POST['fname'] . ' ' . $_POST['mname'] . ' ' . $_POST['lname'];
     $cno = $_POST['cno'];
     $cage = $_POST['cage'];
-    if (isset($_POST['cgender'])) {
-        $cgender = $_POST['cgender'];
-    }
+    $cgender = $_POST['cgender'];
     $course = $_POST['course'];
     $cposition = $_POST['cpositions'];
     $cpartylist = $_POST['cpartylist'];
@@ -35,14 +33,53 @@ if (isset($_POST['submit'])) {
             echo "Congratulations! File Uploaded Successfully.";
         }
     }
+
     $insertquery = "INSERT into candidate(candidatename, candidatestudentnumber, candidateage, candidategender, candidatecourse, candidateposition, candidatepartylist, candidatepicture) values ('$cname', '$cno', '$cage', '$cgender', '$course', '$cposition', '$cpartylist', '$fileurl')";
     $performquery = mysqli_query($conn, $insertquery);
     if ($performquery) {
-        $insertquery = "INSERT into totalvotestracker(partylist) values ('$cpartylist')";
-        $performquery = mysqli_query($conn, $insertquery);
         header('Location: candidate.php');
     } else {
         echo "error";
+    }
+    switch ($_POST['cpositions']) {
+        case 'President':
+            $insertcandidate = "INSERT into president(pres_no, pres_name, votes, partylist) values ('$cno','$cname', '0', '$cpartylist')";
+            $inscan = mysqli_query($conn, $insertcandidate);
+            break;
+        case 'Vice President - Internal':
+            $insertcandidate = "INSERT into vpresi(vpresi_no, vpresi_name, votes, partylist) values ('$cno','$cname', '0', '$cpartylist')";
+            $inscan = mysqli_query($conn, $insertcandidate);
+            break;
+        case 'Vice President - External':
+            $insertcandidate = "INSERT into vprese(vprese_no, vprese_name, votes, partylist) values ('$cno','$cname', '0', '$cpartylist')";
+            $inscan = mysqli_query($conn, $insertcandidate);
+            break;
+        case 'General Secretary':
+            $insertcandidate = "INSERT into gensec(gensec_no, gensec_name, votes, partylist) values ('$cno','$cname', '0', '$cpartylist')";
+            $inscan = mysqli_query($conn, $insertcandidate);
+            break;
+        case 'Deputy Secretary':
+            $insertcandidate = "INSERT into depsec(depsec_no, depsec_name, votes, partylist) values ('$cno','$cname', '0', '$cpartylist')";
+            $inscan = mysqli_query($conn, $insertcandidate);
+            break;
+        case 'Treasurer':
+            $insertcandidate = "INSERT into trea(trea_no, trea_name, votes, partylist) values ('$cno','$cname', '0', '$cpartylist')";
+            $inscan = mysqli_query($conn, $insertcandidate);
+            break;
+        case 'Auditor':
+            $insertcandidate = "INSERT into audi(audi_no, audi_name, votes, partylist) values ('$cno','$cname', '0', '$cpartylist')";
+            $inscan = mysqli_query($conn, $insertcandidate);
+            break;
+        case 'Public Information Officer - Male':
+            $insertcandidate = "INSERT into piom(piom_no, piom_name, votes, partylist) values ('$cno','$cname', '0', '$cpartylist')";
+            $inscan = mysqli_query($conn, $insertcandidate);
+            break;
+        case 'Public Information Officer - Female':
+            $insertcandidate = "INSERT into piof(piof_no, piof_name, votes, partylist) values ('$cno','$cname', '0', '$cpartylist')";
+            $inscan = mysqli_query($conn, $insertcandidate);
+            break;
+        default:
+            echo '<p>Nope</p>';
     }
 }
 ?>
@@ -54,7 +91,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Voting System/stylesheets/candidate.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Candidate</title>
 </head>
 
@@ -62,7 +99,7 @@ if (isset($_POST['submit'])) {
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div class="topnav">
-        <img src="/cict.png" class="img">
+        <img src="/src//cict.png" class="img">
         <div class="title">
             <p>
             <h1>Taguig City University</h1>
@@ -86,13 +123,23 @@ if (isset($_POST['submit'])) {
     <div class="dashboard-voter">
         <div class="list">
             <div class="toplist">
-                <input type="text" placeholder="ex: xx-xxxxx" class="searchbar">
-                <button class="addbtn" v-on:click="isClicked = !isClicked">Add</button>
-                <button class="sortbtn">Sort</button>
-                <button class="findbtn">Find</button>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" placeholder="ex: xx-xxxxx" class="d-flex justify-content-start">
+                    </div>
+                    <div class="col d-flex justify-content-start">
+                        <button class="findbtn">Find</button>
+                        <button class="sortbtn">Sort</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Add
+                        </button>
+                    </div>
+                </div>
+
+
             </div>
-            <div class="tablelist">
-                <table class="table">
+            <div class="tablelist table-responsive">
+                <table class="table table-hover table-striped">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -127,61 +174,77 @@ if (isset($_POST['submit'])) {
                 </table>
             </div>
         </div>
-        <div class="partygraph"></div>
 
     </div>
-    <div id="add" v-if="isClicked">
-        <form method="post" enctype="multipart/form-data">
-            <div class="addcontainer">
-                <div class="imgbtn">
-                    <input type="file" name="my_file" id="insertbtn">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="staticBackdropLabel">Add Candidate</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <p>Surname</p>
-                <input type="text" name="lname" class="intext" id="surtext">
-                <p>First name</p>
-                <input type="text" name="fname" class="intext" id="firsttext">
-                <p>Middle Name</p>
-                <input type="text" name="mname" class="intext" id="mntext">
-                <p>Age</p>
-                <input type="text" name="cage" class="intext" id="agetext"><br><br>
-                <input type="radio" name="cgender" id="male" value="Male">Male
-                <input type="radio" name="cgender" id="female" style="margin-left: 30px;" value="Female">Female
-                <p>Student Number</p>
-                <input type="text" name="cno" class="intext" id="stnotext">
-                <p>Course</p>
-                <input type="text" name="course" class="intext" id="coursetext">
-                <p>Position Applying</p>
-                <select name="cpositions" id="position">
-                    <option value="President">President</option>
-                    <option value="Vice President - Internal">Vice President - Internal</option>
-                    <option value="Vice President - External">Vice President - External</option>
-                    <option value="General Secretary">General Secretary</option>
-                    <option value="Deputy Secretary">Deputy Secretary</option>
-                    <option value="Treasurer">Treasurer</option>
-                    <option value="Auditor">Auditor</option>
-                    <option value="Public Information Officer - Male">Public Information Officer - Male</option>
-                    <option value="Public Information Officer - Female">Public Information Officer - Female</option>
-                </select>
-                <p>Partylist:</p>
-                <input type="text" name="cpartylist" class="intext" id="plist">
+                <div class="modal-body">
+                    <form method="post">
+                        <div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" name="lname" required>
+                                </div>
+                                <div class="col-4">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control" name="fname">
+                                </div>
+                                <div class="col-4">
+                                    <label class="form-label">Middle Name</label>
+                                    <input type="text" class="form-control" name="mname">
+                                </div>
+                            </div>
+
+                            <label class="form-label">Age</label>
+                            <input type="text" class="form-control" name="cage">
+
+                            <input type="radio" name="cgender" class="form-check-input" value="Male">Male
+                            <input type="radio" name="cgender" class="form-check-input" style="margin-left: 15px;" value="Female">Female </br>
+
+                            <label class="form-label">Student Number</label>
+                            <input type="text" class="form-control" name="cno">
+
+                            <label class="form-label">Course</label>
+                            <input type="text" class="form-control" name="course">
+
+                            <label class="form-label">Position</label>
+                            <select class="form-select" name="cpositions">
+                                <option value="President">President</option>
+                                <option value="Vice President - Internal">Vice President - Internal</option>
+                                <option value="Vice President - External">Vice President - External</option>
+                                <option value="General Secretary">General Secretary</option>
+                                <option value="Deputy Secretary">Deputy Secretary</option>
+                                <option value="Treasurer">Treasurer</option>
+                                <option value="Auditor">Auditor</option>
+                                <option value="Public Information Officer - Male">Public Information Officer - Male</option>
+                                <option value="Public Information Officer - Female">Public Information Officer - Female</option>
+                            </select>
+
+                            <label class="form-label">Partylist</label>
+                            <input type="text" class="form-control" name="cpartylist">
+
+                            <label class="form-label">Upload Picture</label>
+                            <input class="form-control" type="file" name="my_file">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button>Apply</button>
+                    <button type="submit" name="submit" data-bs-dismiss="modal">Save</button><br>
+                    <button>Cancel</button>
+                </div>
             </div>
-            <div class="btns">
-                <button class="applybtn">Apply</button><br>
-                <button type="submit" name="submit" class="savebtn">Save</button><br>
-                <button class="cancelbtn" v-on:click="isClicked = !isClicked">Cancel</button>
-            </div>
-        </form>
+        </div>
     </div>
-    <script>
-        let add = Vue.createApp({
-            data: function() {
-                return {
-                    isClicked: false
-                }
-            }
-        })
-        add.mount('#addcandidate')
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -10,40 +10,21 @@ if (isset($_POST['login'])) {
     $loginquery = "SELECT * FROM studentlist WHERE studentnumber = '$studentnumber' AND studentpassword = '$studentpass'";
     $res = mysqli_query($conn, $loginquery);
     if (mysqli_num_rows($res) == 1) {
-        $vloginquery = "SELECT * FROM studentvotes WHERE studentnumber = '$studentnumber'";
-        $vres = mysqli_query($conn, $vloginquery);
         $data = mysqli_fetch_array($res);
-        $vdata = mysqli_fetch_array($vres);
-
         $name = $data['studentname'];
+        $stno = $data['studentnumber'];
         $year = $data['studentyear'];
         $section = $data['studentsection'];
         $phonenumber = $data['studentcontactnumber'];
-        $votedpres = $vdata['votedpres'];
-        $votedvpresi = $vdata['votedvpresi'];
-        $votedvprese = $vdata['votedvprese'];
-        $votedgs = $vdata['votedgs'];
-        $votedds = $vdata['votedds'];
-        $votedtrea = $vdata['votedtrea'];
-        $votedaudi = $vdata['votedaudi'];
-        $votedpiom = $vdata['votedpiom'];
-        $votedpiof = $vdata['votedpiof'];
 
         $_SESSION['name'] = $name;
+        $_SESSION['stno'] = $stno;
         $_SESSION['year'] = $year;
         $_SESSION['section'] = $section;
         $_SESSION['phonenumber'] = $phonenumber;
-        $_SESSION['votedpres'] = $votedpres;
-        $_SESSION['votedvpresi'] = $votedvpresi;
-        $_SESSION['votedvprese'] = $votedvprese;
-        $_SESSION['votedgs'] = $votedgs;
-        $_SESSION['votedds'] = $votedds;
-        $_SESSION['votedtrea'] = $votedtrea;
-        $_SESSION['votedaudi'] = $votedaudi;
-        $_SESSION['votedpiom'] = $votedpiom;
-        $_SESSION['votedpiof'] = $votedpiof;
 
-        header('Location: dashboard.php');
+
+        header('Location: president.php');
         exit;
     } else {
         echo '<script language="javascript">';
@@ -64,7 +45,7 @@ if (isset($_POST['signup'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/login.css">
-    <title>Home</title>
+    <title>Log in</title>
 </head>
 
 <body>

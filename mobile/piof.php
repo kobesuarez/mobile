@@ -1,3 +1,36 @@
+<?php
+include('connection.php');
+
+if (!session_start()) {
+    session_start();
+} else {
+    $sno = $_SESSION['stno'];
+    $getvotequery = "SELECT votedpiof FROM studentvote WHERE sno = '$sno'";
+    $vote = mysqli_query($conn, $getvotequery);
+    $data = mysqli_fetch_array($vote);
+    $status = $data['votedpiof'];
+    if ($status == 0) {
+        if (isset($_POST['votepiof'])) {
+            $id = $_POST['votepiof'];
+            $votequery = "SELECT votes FROM piof WHERE piof_no = '$id'";
+            $vote = mysqli_query($conn, $votequery);
+            $data = mysqli_fetch_array($vote);
+            $getvote = $data['votes'];
+            $getvote = $getvote + 1;
+            $updatevote = "UPDATE piof SET votes = '$getvote' WHERE piof_no = '$id'";
+            mysqli_query($conn, $updatevote);
+            $updatestudent = "UPDATE studentvote SET votedpiof = '$id' WHERE sno = '$sno'";
+            mysqli_query($conn, $updatestudent);
+            header('Location: piof.php');
+            exit;
+        }
+    } else {
+        header('Location: dashboard.php');
+        exit;
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,40 +56,34 @@
 
         </div>
     </div><br>
+    <div>
+        <?php
+        include('connection.php');
+        $countquery = "SELECT * FROM candidate WHERE candidateposition = 'Public Information Officer - Female'";
+        $countres = mysqli_query($conn, $countquery);
+        while ($getrow = mysqli_fetch_array($countres)) {
+            $cname = $getrow["candidatename"];
+            $cpos = $getrow["candidateposition"];
+            $cstno = $getrow["candidatestudentnumber"];
+            $cpartylist = $getrow["candidatepartylist"];
+            $imageurl = $getrow["candidatepicture"];
+            echo    '<form method = "post">
+                <div class="row pb-3 ml-3">
+                    <div class="col-6 card text-center" style="width: 18rem;">
+                            <img src="src/candidate/Public Information Officer - Female/' . $imageurl . '" class="card-img-top py-3 rounded-circle" alt="...">
+                             <div class="card-body py-0 px-0">
+                                <p class="card-text">' . $cname . '</p>
+                                <p class="text-secondary">' . $cpos . '</p>
+                                <p class="text-secondary">' . $cpartylist . '</p>
+                                <button class="btn btn-primary mb-2" type="submit" name = "votepiof" value = "' . $cstno . '" >Vote ' . $cname . ' </button>
+                            </div>
+                        </div>
+                    </div>
+                </form';
+        }
+        ?>
+    </div>
 </body>
 
+
 </html>
-<?php
-include('connection.php');
-session_start();
-
-$countquery = "SELECT * FROM candidate WHERE candidateposition = 'Public Information Officer - Female'";
-$countres = mysqli_query($conn, $countquery);
-while ($getrow = mysqli_fetch_array($countres)) {
-    $cname = $getrow["candidatename"];
-    $cpos = $getrow["candidateposition"];
-    $cpartylist = $getrow["candidatepartylist"];
-    echo '<div class="row pb-3 ml-3">
-            <div class="col-5 card text-center" style="width: 18rem;">
-                <img src="/src/currentpartylist/President.jpg" class="card-img-top py-3 rounded-circle" alt="...">
-                <div class="card-body py-0 px-0">
-                    <p class="card-text">' . $cname . '</p>
-                    <p class="text-secondary">' . $cpos . '</p>
-                    <p class="text-secondary">' . $cpartylist . '</p>
-                </div>
-            </div>
-        </div>';
-}
-
-if (!isset($_SESSION['votedpiof'])) {
-    $votingstatus = $_SESSION['votedpiof'];
-    if ($votingstatus == 0) {
-        echo '<button type="submit" name="submit">Vote</button>';
-    } else {
-        echo '<button type="button" name="submit" disabled>Already Voted</button>';
-    }
-} else {
-    //header('Location: dashboard.php');
-    //exit;
-}
-?>

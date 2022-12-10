@@ -1,3 +1,36 @@
+<?php
+include('connection.php');
+
+if (!session_start()) {
+    session_start();
+} else {
+    $sno = $_SESSION['stno'];
+    $getvotequery = "SELECT votedds FROM studentvote WHERE sno = '$sno'";
+    $vote = mysqli_query($conn, $getvotequery);
+    $data = mysqli_fetch_array($vote);
+    $status = $data['votedds'];
+    if ($status == 0) {
+        if (isset($_POST['votedepsec'])) {
+            $id = $_POST['votedepsec'];
+            $votequery = "SELECT votes FROM depsec WHERE depsec_no = '$id'";
+            $vote = mysqli_query($conn, $votequery);
+            $data = mysqli_fetch_array($vote);
+            $getvote = $data['votes'];
+            $getvote = $getvote + 1;
+            $updatevote = "UPDATE depsec SET votes = '$getvote' WHERE depsec_no = '$id'";
+            mysqli_query($conn, $updatevote);
+            $updatestudent = "UPDATE studentvote SET votedds = '$id' WHERE sno = '$sno'";
+            mysqli_query($conn, $updatestudent);
+            header('Location: trea.php');
+            exit;
+        }
+    } else {
+        header('Location: trea.php');
+        exit;
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,39 +56,34 @@
 
         </div>
     </div><br>
+    <div>
+        <?php
+        include('connection.php');
+        $countquery = "SELECT * FROM candidate WHERE candidateposition = 'Deputy Secretary'";
+        $countres = mysqli_query($conn, $countquery);
+        while ($getrow = mysqli_fetch_array($countres)) {
+            $cname = $getrow["candidatename"];
+            $cpos = $getrow["candidateposition"];
+            $cstno = $getrow["candidatestudentnumber"];
+            $cpartylist = $getrow["candidatepartylist"];
+            $imageurl = $getrow["candidatepicture"];
+            echo    '<form method = "post">
+                <div class="row pb-3 ml-3">
+                    <div class="col-6 card text-center" style="width: 18rem;">
+                            <img src="src/candidate/Deputy Secretary/' . $imageurl . '" class="card-img-top py-3 rounded-circle" alt="...">
+                             <div class="card-body py-0 px-0">
+                                <p class="card-text">' . $cname . '</p>
+                                <p class="text-secondary">' . $cpos . '</p>
+                                <p class="text-secondary">' . $cpartylist . '</p>
+                                <button class="btn btn-primary mb-2" type="submit" name = "votedepsec" value = "' . $cstno . '" >Vote ' . $cname . ' </button>
+                            </div>
+                        </div>
+                    </div>
+                </form';
+        }
+        ?>
+    </div>
 </body>
 
+
 </html>
-<?php
-include('connection.php');
-session_start();
-
-$countquery = "SELECT * FROM candidate WHERE candidateposition = 'Deputy Secretary'";
-$countres = mysqli_query($conn, $countquery);
-while ($getrow = mysqli_fetch_array($countres)) {
-    $cname = $getrow["candidatename"];
-    $cpos = $getrow["candidateposition"];
-    $cpartylist = $getrow["candidatepartylist"];
-    echo '<div class="row pb-3 ml-3">
-            <div class="col-5 card text-center" style="width: 18rem;">
-                <img src="/src/currentpartylist/President.jpg" class="card-img-top py-3 rounded-circle" alt="...">
-                <div class="card-body py-0 px-0">
-                    <p class="card-text">' . $cname . '</p>
-                    <p class="text-secondary">' . $cpos . '</p>
-                    <p class="text-secondary">' . $cpartylist . '</p>
-                </div>
-            </div>
-        </div>';
-}
-
-if (!isset($_SESSION['votedds'])) {
-    $votingstatus = $_SESSION['votedds'];
-    if ($votingstatus == 0) {
-        echo '<button type="submit" name="submit">Vote</button>';
-    } else {
-        echo '<button type="button" name="submit" disabled>Already Voted</button>';
-    }
-} else {
-    echo '<button type="button" name="submit" disabled>Disabled</button>';
-}
-?>

@@ -17,7 +17,7 @@ if (isset($_POST['signup'])) {
     $ssection = mysqli_real_escape_string($conn, $ssection);
     $scno = mysqli_real_escape_string($conn, $scno);
     $spassword = mysqli_real_escape_string($conn, $spassword);
-    $insertquery = "insert into studentlist(studentname, studentnumber, studentemail, studentyear, studentsection, studentcontactnumber, studentpassword) values ('$sname', '$sno', '$smail', '$syear', '$ssection', '$scno', '$spassword', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus')";
+    $insertquery = "insert into studentlist(studentname, studentnumber, studentemail, studentyear, studentsection, studentcontactnumber, studentpassword) values ('$sname', '$sno', '$smail', '$syear', '$ssection', '$scno', '$spassword')";
     $performquery = mysqli_query($conn, $insertquery);
     if ($performquery) {
         $vinsertquery = "insert into studentvote(sno, votedpres, votedvpresi, votedvprese, votedgs, votedds, votedtrea, votedaudi, votedpiom, votedpiof) values ('$sno', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus', '$votingstatus')";
@@ -71,7 +71,13 @@ if (isset($_POST['login'])) {
         <p>E-mail</p>
         <input type="email" name="smail" class="signtext">
         <p>Year</p>
-        <input type="text" name="syear" class="signtext">
+        <select name="syear" id="position">
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
+            <option value="Irregular">Irregular</option>
+        </select>
         <p>Section</p>
         <input type="text" name="ssection" class="signtext">
         <p>Contact Number</p>
