@@ -1,0 +1,131 @@
+:root { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+body{
+    background-image: linear-gradient(247.23deg, #A229A5 -2.25%, #EB3737 104.04%);
+}
+.pageTitle{
+    display:  inline-block;
+    position: absolute;
+    width: 464px;
+    height: 135px;
+    left: 115px;
+    top: 40px;
+}
+
+.pageSchool{
+    font-family: i;
+    font-size: 30px; 
+    text-decoration: underline;
+}
+
+.pageSchool2{
+    margin-top: -30px;
+    font-size: 20px;
+}
+
+.signUpBox{
+    display: inline-block;
+    position: absolute;
+    width: 268.54px;
+    height: 552px;
+    left: 148px;
+    top: 217px;
+    
+}
+.text{
+    font-family: 'Istok Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;    
+}
+
+
+input[type=text]{
+    background: rgba(217, 217, 217, 0.5);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 80px;
+    padding: 10px;
+    width: 200px; 
+}
+.button{
+    
+    width: 100px;
+    height: 50px;
+    left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+   
+    background: linear-gradient(247.23deg, #A229A5 -2.25%, #EB3737 104.04%);
+    border: 2px solid #FFFFFF;
+    border-radius: 29px; 
+}
+.rectangle{
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: black;
+    border-radius: 110px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+#login{
+    position: absolute;
+    font-family: 'Istok Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    display: inline-block;
+    align-items: center;
+    text-align: center; 
+    color: #FFFFFF;
+    left: 160px;
+    top: 10px;    
+}
+.bbotton{
+    position: absolute;
+    width: 244px;
+    height: 50px;
+    left: 148px;
+    top: 700px;
+    display: inline-block;
+    align-items: center;
+    
+    
+
+
+}
+.rightside{
+    position: absolute;
+    width: 618px;
+    height: 841px;
+    left: 603px;
+    top: 91px; 
+    align-items: center;
+      
+}
+.lrectangle{
+    position: absolute;
+    width: 2px;
+    height: 641px;
+    left: 0px;
+    top: 0px;
+    background-color: #FFFFFF;
+      
+}
+.img{
+    position: absolute;
+    width: 557px;
+    height: 574px;
+    display: inline-block;
+    left: 70px;
+}
+
+

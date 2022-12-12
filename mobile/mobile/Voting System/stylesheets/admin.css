@@ -1,0 +1,57 @@
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login{
+    display: flex;
+    flex-direction: row;
+}
+body{
+    margin: 0 0 0 0;
+    padding: 0 0 6px 0;
+    background-image: linear-gradient(247.23deg, #FFFFFF -2.25%, #B76363 104.04%);
+}
+.loginpanel{
+    color: white;
+    padding: 100px 0 0 150px;
+    height: 85vh;
+    width: 30vw;
+}
+.logo{
+    border-left: 1px solid white;   
+    height: 100%;
+    margin-top: 100px;
+    padding: 0 0 0 12.5%;
+}
+.imglogo{
+    width: 30vw;
+}
+.title, .collegetitle{
+    margin: 0 0 0 0;
+}
+.adminlog, .stno, .pword{
+    margin: 10px 0 10px 0;
+}
+.adminlog{
+    margin: 20px 0 0 0;
+}
+#logintext, #password{
+    background-color: #D9D9D9;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 0 0 0 20px;
+    width: 16vw;
+    height: 4vh;
+}
+.save{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#login{
+    color: white;
+    border: 1px solid white;
+    background: linear-gradient(247.23deg, #A229A5 -2.25%, #EB3737 104.04%);
+    border-radius: 50px;
+    padding: 10px 20px 10px 20px;
+}

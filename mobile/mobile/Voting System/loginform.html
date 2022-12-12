@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loginform.css">
+    <link rel="shortcut icon" href="cict.png" type="image/x-icon/">
+    <script src="js/loginform.js"></script>
+    <title>Log In</title>
+</head>
+<body>
+    <div class="loginbox">
+        <p class = "title">Computer Science Voting Portal</p>
+        <p class = "school">Taguig City University</p>
+        <form action="">
+            <label for="studentnumber">Student Number</label><br>
+            <input type="text" id="studentnumber" placeholder="ex. 20-00000"><br><br>
+
+            <label for="password">Password</label><br>
+            <input type="password" id="password" placeholder=""><br>
+
+            <input type="checkbox" id="save">
+            <label for="save">Remember me</label>
+        </form>
+        <div class="logsign">
+            <div class="loginbutton">
+                <button class="loginbtn">Log in</button>
+                <div class="line"></div>
+                <button class="signinbtn" onclick = "tosignin()">Sign in</button>
+           </div>
+           <div class="rightside">
+               <div class="seperator"></div>
+               <img src="cict.png" alt="bla bla" class="img" >
+           </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function tosignin(){
+            window.location = "form1.html";
+        }
+    </script>
+</body>
+</html>

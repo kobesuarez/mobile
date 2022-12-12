@@ -1,0 +1,96 @@
+body{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+body{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.topnav{
+    display: inline-block;
+    width: 99%;
+    height: 20%;
+    background-color: #DBBCD2;
+    padding: 12.5px 0 12.5px 0;
+    margin: 0 0 0 0;
+}
+.title{
+    float: left;
+    justify-content: center;
+    padding: 0 0 0 0;
+}
+h1, h3{
+    margin: 0 0 0 0;
+}
+.img{
+    float: left;
+    margin: 10px 10px 0px 10px;
+    height: 10vh;
+}
+li{
+    margin: 0 0 0 0;
+    padding: 10px;
+    list-style-type: none;
+    text-align: center;
+}
+li:hover{
+    background-color: white;
+}
+ul{
+    padding: 0 0 0 0;
+}
+.dashboardbtn, .voterbtn, .candidatebtn{
+    background-color: transparent;
+    border: none;
+  }
+.dashboard-voter{
+    display: inline-flex;
+
+}
+
+.adminname{
+    float: right;
+    margin: 35px 30px 0 0;
+}
+.adminlogo{
+    float: right;
+    background-color: black;
+    border-radius: 50px;
+    height: 7vh;
+    width: 3.5vw;
+    margin: 15px 30px 0 0;
+}
+.dashboard-voter{
+    display: inline-flex;
+}
+.list{
+    height: 81.2vh;
+    background-color: #EDEDED;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.vgraph{
+    background-color: #EDEDED;
+    height: 80.7vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.position, .voters, .candidates{
+    background-color: #EDEDED;
+    height: 25.35vh;
+    display: block;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tablelist{
+    background-color: white;
+    height: 65vh;
+}
+#a, #b{
+    color: white;
+    background-color: #3273FF;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }

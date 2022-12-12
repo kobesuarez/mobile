@@ -1,0 +1,70 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+p{
+    margin-bottom: 0;
+}
+.icon{
+    width: 15vw;
+}
+.top{
+    width: 100%;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    padding: 5% 0 20px 0;
+    margin-bottom: 25px;
+    background-image: linear-gradient(247.23deg, #A229A5 -2.25%, #EB3737 104.04%);
+    color: white;
+}
+.webname{
+    font-weight: bolder;
+}
+.webname, .schoolname{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}   
+.register{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    margin-left: 6.75vw;
+    height: 6vh;
+    width: 20vw;
+}
+.sep{
+    border-left: 3px solid #B4B4B4;
+}
+.login{
+    height: 6vh;
+    width: 20vw;
+    margin-right: 6.75vw;
+    background: linear-gradient(247.23deg, #A229A5 -2.25%, #EB3737 104.04%);
+    border: 2px solid #FFFFFF;
+    border-radius: 25px;
+    color: white; 
+}
+.logtext{
+    background-color: #D9D9D9;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 0 0 0 20px;
+    width: 52vw;
+    height: 5vh;
+}

@@ -1,0 +1,92 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+p{
+    margin-bottom: 0;
+}
+.webname{
+    font-size: 0.72rem;
+}
+.icon{
+    width: 15vw;
+}
+.top{
+    width: 100vw;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    padding: 15% 0 20px 0;
+    background-image: linear-gradient(247.23deg, #A229A5 -2.25%, #EB3737 104.04%);
+    color: white;
+}
+.schoolname{
+    font-weight: bolder;
+}
+.webname, .schoolname{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.backpic{
+    background-image: url(/src/back.jpg);
+    background-size: cover;
+    width: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.pic{
+    background-color: black;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    z-index: 1;
+    margin-right: 5%;
+}
+.mid{
+    display: flex;
+}
+.info{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10%;
+    z-index: 1;
+    font-weight: bold;
+}
+.header{
+    font-weight: bold;
+    color: #365E7D;
+    margin: 0 0 0 0;
+    padding: 7.5% 5% 2.5% 7% ;
+}
+.pword, .cno{
+    font-weight: bold;
+    color: #365E7D;
+    margin: 0 0 0 0;
+    padding: 5% 5% 2.5% 5% ;
+}
+.no{
+    margin: 0 0 2.5% 0; 
+    padding-left: 7%;
+}
+.account, .security{
+    border-bottom: 1px solid #365E7D;
+    border-top: 1px solid #365E7D;
+}
+.changepassword{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-weight: bold;
+    margin: 0 0 0 0; 
+    padding: 0 0 0 7%;
+    height: 6vh;
+}
+
