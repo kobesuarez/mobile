@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $cpartylist = mysqli_real_escape_string($conn, $cpartylist);
     if (($_FILES['my_file']['name'] != "")) {
         // Where the file is going to be stored
-        $target_dir = "C:\Users\\Windows X\\Documents\\files\\mobile\\src\\candidate\\" . $cposition . "\\" . $cname;
+        $target_dir = "\\src\\candidate\\" . $cposition . "\\" . $cname;
         $file = $_FILES['my_file']['name'];
         $path = pathinfo($file);
         $ext = $path['extension'];
@@ -94,50 +94,66 @@ if (isset($_POST['submit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Candidate</title>
 </head>
+<style>
+    :required::after {
+        content: "*";
+        color: red;
+    }
+</style>
 
-<body id="addcandidate">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-    <div class="topnav">
-        <img src="/src//cict.png" class="img">
-        <div class="title">
-            <p>
-            <h1>Taguig City University</h1>
-            <h3>College of Information Communication and Technology Admin Portal</h3>
-            </p>
-        </div>
-        <div class="adminpanel">
-            <div class="adminlogo">
-                <img src="" alt="" class="logo">
+<body>
+    <div class="topnav w-100 py-0 px-0">
+        <div class="row pt-2 mt-3 g-0">
+            <div class="col-1 d-flex justify-content-end">
+                <img src="/src//cict.png" class="img">
             </div>
-            <h3 class="adminname">Admin</h3>
+            <div class="col-9 px-0">
+                <h2>Taguig City University</h1>
+                    <h4>College of Information Communication and Technology Admin Portal</h3>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-center px-0">
+                <div class="col-2"><h3 class="adminname mx-0 my-0"><?php echo $_SESSION['adminuser']; ?></h3></div>
+                <div class="col-3">
+                <div class="adminlogo mx-0 my-0">
+                    <img src="" alt="" class="logo">
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row flex-row g-0">
+            <ul class="d-flex justify-content-around my-0 mx-0">
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="voter.php">Voters List</a></li>
+            </ul>
         </div>
     </div>
-    <div class="sidenav">
-        <ul>
-            <li><button type="button" class="dashboardbtn">Dashboard</button></li>
-            <li><button type="button" class="voterbtn">Voters List</button></li>
-            <li><button type="button" class="candidatebtn">Candidates</button></li>
-        </ul>
+
+
+    <div class="title">
+        <p>
+
+        </p>
     </div>
+
+    </div>
+
     <div class="dashboard-voter">
         <div class="list">
             <div class="toplist">
                 <div class="row">
                     <div class="col">
-                        <input type="text" placeholder="ex: xx-xxxxx" class="d-flex justify-content-start">
+                        <input type="text" placeholder="ex: xx-xxxxx" class="d-flex justify-content-start mx-3 ">
                     </div>
-                    <div class="col d-flex justify-content-start">
-                        <button class="findbtn">Find</button>
-                        <button class="sortbtn">Sort</button>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <div class="col d-flex justify-content-end">
+                        <button class="btn btn-sm mx-2 px-5" id="a">Find</button>
+                        <button class="btn btn-sm mx-2 px-5" id="b">Sort</button>
+                        <button type="button" class="btn btn-sm mx-2 px-5 " id="c" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             Add
                         </button>
                     </div>
                 </div>
-
-
             </div>
+
             <div class="tablelist table-responsive">
                 <table class="table table-hover table-striped">
                     <thead>
@@ -174,17 +190,16 @@ if (isset($_POST['submit'])) {
                 </table>
             </div>
         </div>
-
     </div>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="staticBackdropLabel">Add Candidate</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post">
+            <form method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="staticBackdropLabel">Add Candidate</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
                         <div>
                             <div class="row">
                                 <div class="col-4">
@@ -193,28 +208,28 @@ if (isset($_POST['submit'])) {
                                 </div>
                                 <div class="col-4">
                                     <label class="form-label">First Name</label>
-                                    <input type="text" class="form-control" name="fname">
+                                    <input type="text" class="form-control" name="fname" required>
                                 </div>
                                 <div class="col-4">
                                     <label class="form-label">Middle Name</label>
-                                    <input type="text" class="form-control" name="mname">
+                                    <input type="text" class="form-control" name="mname" required>
                                 </div>
                             </div>
 
                             <label class="form-label">Age</label>
                             <input type="text" class="form-control" name="cage">
 
-                            <input type="radio" name="cgender" class="form-check-input" value="Male">Male
-                            <input type="radio" name="cgender" class="form-check-input" style="margin-left: 15px;" value="Female">Female </br>
+                            <input type="radio" name="cgender" class="form-check-input" value="Male" required>Male
+                            <input type="radio" name="cgender" class="form-check-input" style="margin-left: 15px;" value="Female" required>Female </br>
 
                             <label class="form-label">Student Number</label>
-                            <input type="text" class="form-control" name="cno">
+                            <input type="text" class="form-control" name="cno" required>
 
                             <label class="form-label">Course</label>
-                            <input type="text" class="form-control" name="course">
+                            <input type="text" class="form-control" name="course" required>
 
                             <label class="form-label">Position</label>
-                            <select class="form-select" name="cpositions">
+                            <select class="form-select" name="cpositions" required>
                                 <option value="President">President</option>
                                 <option value="Vice President - Internal">Vice President - Internal</option>
                                 <option value="Vice President - External">Vice President - External</option>
@@ -227,19 +242,20 @@ if (isset($_POST['submit'])) {
                             </select>
 
                             <label class="form-label">Partylist</label>
-                            <input type="text" class="form-control" name="cpartylist">
+                            <input type="text" class="form-control" name="cpartylist" required>
 
                             <label class="form-label">Upload Picture</label>
-                            <input class="form-control" type="file" name="my_file">
+                            <input class="form-control" type="file" name="my_file" required>
                         </div>
-                    </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button>Apply</button>
+                        <button type="submit" name="submit" data-bs-dismiss="modal">Save</button><br>
+                        <button>Cancel</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button>Apply</button>
-                    <button type="submit" name="submit" data-bs-dismiss="modal">Save</button><br>
-                    <button>Cancel</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

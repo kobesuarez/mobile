@@ -67,7 +67,7 @@
                 $cpartylist = $getrow["candidatepartylist"];
                 $imageurl = $getrow["candidatepicture"];
                 echo    '<form method = "post">
-                        <div class="row pb-3 ml-3">
+                <div class="row pb-3 ml-4 mr-0">
                             <div class="col-6 card text-center" style="width: 18rem;">
                                 <img src="src/candidate/President/' . $imageurl . '" class="card-img-top py-3 rounded-circle" alt="...">
                                 <div class="card-body py-0 px-0">
@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form';
+                    </form>';
             }
             ?>
         </div>

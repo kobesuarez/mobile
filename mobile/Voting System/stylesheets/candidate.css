@@ -4,10 +4,8 @@ body {
 }
 .topnav {
   display: inline-block;
-  width: 100%;
   height: 20%;
   background-color: #dbbcd2;
-  padding: 12.5px 0 12.5px 0;
   margin: 0 0 0 0;
 }
 .title {
@@ -21,7 +19,7 @@ h3 {
 }
 .img {
   float: left;
-  margin: 10px 10px 0px 10px;
+  margin: 0 0 0 0;
   height: 10vh;
 }
 .sidenav {
@@ -37,16 +35,15 @@ li {
   list-style-type: none;
   text-align: center;
 }
+.dashboardbtn, .voterbtn, .candidatebtn{
+  background-color: transparent;
+  border: none;
+}
 li:hover {
   background-color: white;
 }
 ul {
   padding: 0 0 0 0;
-}
-.sidenav,
-.dashboard-voter,
-.vgraph {
-  display: inline-block;
 }
 
 .adminname {
@@ -57,13 +54,15 @@ ul {
   float: right;
   background-color: black;
   border-radius: 50px;
-  height: 7vh;
-  width: 3.5vw;
+  height: 50px;
+  width: 50px;
   margin: 15px 30px 0 0;
 }
 .dashboard-voter {
   display: flex;
   margin: 0 0 0 0;
+  justify-content: center;
+  align-items: center;
 }
 .list {
   border-radius: 15px;
@@ -73,6 +72,10 @@ ul {
   width: 55vw;
   background-color: #ededed;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#a, #b, #c{
+  background-color: #3273FF;
+  color: white;
 }
 .partygraph {
   background-color: #ededed;
@@ -88,4 +91,8 @@ ul {
   background-color: white;
   height: 65vh;
   width: 53vw;
+}
+a{
+  text-decoration: none;
+  color: white;
 }

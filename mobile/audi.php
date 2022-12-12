@@ -68,18 +68,18 @@ if (!session_start()) {
             $cpartylist = $getrow["candidatepartylist"];
             $imageurl = $getrow["candidatepicture"];
             echo    '<form method = "post">
-                <div class="row pb-3 ml-3">
-                    <div class="col-6 card text-center" style="width: 18rem;">
-                            <img src="src/candidate/Auditor/' . $imageurl . '" class="card-img-top py-3 rounded-circle" alt="...">
-                             <div class="card-body py-0 px-0">
-                                <p class="card-text">' . $cname . '</p>
-                                <p class="text-secondary">' . $cpos . '</p>
-                                <p class="text-secondary">' . $cpartylist . '</p>
-                                <button class="btn btn-primary mb-2" type="submit" name = "voteaudi" value = "' . $cstno . '" >Vote ' . $cname . ' </button>
+                        <div class="row pb-3 ml-4 mr-0">
+                            <div class="col-11 card text-center" style="width: 18rem;">
+                                    <img src="src/candidate/Auditor/' . $imageurl . '" class="card-img-top py-3 rounded-circle" alt="...">
+                                    <div class="card-body-lg py-0 px-0">
+                                        <p class="card-text">' . $cname . '</p>
+                                        <p class="text-secondary">' . $cpos . '</p>
+                                        <p class="text-secondary">' . $cpartylist . '</p>
+                                        <button class="btn btn-primary mb-2" type="submit" name = "voteaudi" value = "' . $cstno . '" >Vote ' . $cname . ' </button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </form';
+                        </form>';
         }
         ?>
     </div>

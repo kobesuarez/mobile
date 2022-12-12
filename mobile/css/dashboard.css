@@ -16,11 +16,11 @@ p {
   width: 15vw;
 }
 .top {
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15% 0 20px 0;
+  padding: 5% 0 20px 0;
   background-image: linear-gradient(247.23deg, #a229a5 -2.25%, #eb3737 104.04%);
   color: white;
   column-gap: 1.5rem;

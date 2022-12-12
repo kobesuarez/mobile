@@ -5,8 +5,6 @@ session_start();
 if (isset($_POST['login'])) {
     $studentnumber = $_POST['sno'];
     $studentpass = $_POST['pword'];
-    $studentnumber = mysqli_real_escape_string($conn, $studentnumber);
-    $studentpass = mysqli_real_escape_string($conn, $studentpass);
     $loginquery = "SELECT * FROM studentlist WHERE studentnumber = '$studentnumber' AND studentpassword = '$studentpass'";
     $res = mysqli_query($conn, $loginquery);
     if (mysqli_num_rows($res) == 1) {
@@ -22,7 +20,6 @@ if (isset($_POST['login'])) {
         $_SESSION['year'] = $year;
         $_SESSION['section'] = $section;
         $_SESSION['phonenumber'] = $phonenumber;
-
 
         header('Location: president.php');
         exit;
